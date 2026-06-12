@@ -4,29 +4,28 @@
 
 
 # def solution(str1, str2):
-#     str1, str2 = str1.lower(), str2.lower()
-#     alphabet = "abcdefghijklmnopqrstuvwxyz"
+#     def make_multiset(s):
+#         s = s.lower()
+#         result = []
 
-#     multiset1 = []
-#     multiset2 = []
+#         for i in range(len(s) - 1):
+#             pair = s[i:i+2]
 
-#     for i in range(len(str1)-1):
-#         if str1[i] in alphabet and str1[i+1] in alphabet:
-#             multiset1.append(str1[i:i+2])
+#             if pair.isalpha():
+#                 result.append(pair)
 
-#     for i in range(len(str2)-1):
-#         if str2[i] in alphabet and str2[i+1] in alphabet:
-#             multiset2.append(str2[i:i+2])
+#         return Counter(result)
 
-#     if not multiset1 and not multiset2:
+#     A = make_multiset(str1)
+#     B = make_multiset(str2)
+
+#     intersection = sum((A & B).values())
+#     union = sum((A | B).values())
+
+#     if union == 0:
 #         return 65536
 
-#     counter1 = Counter(multiset1)
-#     counter2 = Counter(multiset2)
-
-#     intersection_count = sum((counter1 & counter2).values())
-#     union_count = sum((counter1 | counter2).values())
-#     return int((intersection_count / union_count) * 65536)
+#     return int(intersection / union * 65536)
 
 
 def solution(str1, str2):
